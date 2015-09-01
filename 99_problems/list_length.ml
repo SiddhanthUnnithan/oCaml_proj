@@ -1,7 +1,7 @@
 open Core.Std
 
-let rec length list =
-  match list with
-  | [] -> 0
-  | [_] -> 1
-  | (_ :: tl) -> 1 + length tl 
+let length list =
+  let rec inter u = function
+    | [] -> u
+    | (elem1 :: tl) -> 1 + inter u tl  in
+  inter 0 list 

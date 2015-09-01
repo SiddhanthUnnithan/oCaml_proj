@@ -1,6 +1,7 @@
 open Core.Std
 
-let rec rev list =
-  match list with
-  | [] -> []
-  | (elem1 :: tl) -> (rev tl) :: elem1 
+let rev list =
+  let rec inter u = function
+    | [] -> u
+    | (elem1 :: tl) -> inter (elem1 :: u) tl in
+  inter [] list
